@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" />
+<link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+
+<title>Cloud Ready - Workshops</title>
+</head>
+
+<body class="bg-light">
+	<div th:replace="fragments/header :: header">&nbsp;</div>
+	
+	<div class="mx-auto" style="height:10px"></div>
+
+	<div class="container">
+	
+		<div class="d-flex align-items-center p-3 my-3 text-white-50 bg-pivoteal rounded box-shadow">
+        	<div class="lh-100">
+          		<h6 class="mb-0 text-white lh-100">Workshops</h6>
+          		<small></small>
+        	</div>
+      	</div>
+      	
+      	<div class="my-3 p-3 bg-white rounded box-shadow">
+        	<h6 class="border-bottom border-gray pb-2 mb-0">Cloud Foundry</h6>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/workshops/cloud-foundry/basics}">Cloud Foundry Basics</a></strong>
+            		Learn the basics of the Cloud Foundry platform and how the platform enables developers to deliver better software faster.
+          		</p>
+        	</div>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/workshops/cloud-foundry/app-deployments}">App Deployments</a></strong>
+            		Learn how to deploy apps to Cloud Foundry and the artifacts that are needed for deployment.
+          		</p>
+        	</div>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/workshops/cloud-foundry/cli}">Cloud Foundry CLI</a></strong>
+            		Learn how to use the Cloud Foundry command line interface tool to interact with the platform.
+          		</p>
+        	</div>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/workshops/cloud-foundry/bosh-overview}">BOSH Overview</a></strong>
+            		Learn the basics of BOSH and how this open source technology creates and manages the IAAS infrastructure on which the platform runs.
+          		</p>
+        	</div>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/workshops/cloud-foundry/credhub}">CredHub</a></strong>
+            		Learn how developers can leverage CredHub to secure and rotate credentials and certificates.
+          		</p>
+        	</div>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/workshops/cloud-foundry/healthwatch}">HealthWatch</a></strong>
+            		Learn how HealthWatch enables platform operators to view key platform metrics and monitor foundations.
+          		</p>
+        	</div>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/workshops/cloud-foundry/service-brokers}">Service Brokers</a></strong>
+            		Learn how to leverage service brokers to integrate applications with other systems through the service binding pattern.
+          		</p>
+        	</div>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/workshops/cloud-foundry/logging}">Logging</a></strong>
+            		Learn how Cloud Foundry distributes logs through the loggregator architecture.
+          		</p>
+        	</div>  
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/workshops/cloud-foundry/zero-downtime-deployments}">Zero Downtime Deployments</a></strong>
+            		Learn how Cloud Foundry enables developers to deploy code with zero downtime.
+          		</p>
+        	</div>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/workshops/cloud-foundry/scaling}">Scaling</a></strong>
+            		Learn how to scale Cloud Foundry applications through the CLI, in Apps Manager or automated through autoscaling.
+          		</p>
+        	</div>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/workshops/cloud-foundry/pcf-dev}">PCF Dev</a></strong>
+            		Learn how to build and deploy Cloud Foundry applications locally using PCF Dev.
+          		</p>
+        	</div>         	     	
+      	</div>
+      	
+      	<div class="my-3 p-3 bg-white rounded box-shadow">
+        	<h6 class="border-bottom border-gray pb-2 mb-0">Java/Spring</h6>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/workshops/java-spring/spring-boot}">Spring Boot</a></strong>
+            		Learn the basics of Spring Boot applications and best practices for creating your own.
+          		</p>
+        	</div>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/workshops/java-spring/spring-cloud-discovery}">Spring Cloud Discovery</a></strong>
+            		Learn how to leverage Spring Cloud Discovery to enable resiliency and availability of your applications.
+          		</p>
+        	</div>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/workshops/java-spring/spring-cloud-config}">Spring Cloud Config</a></strong>
+            		Learn how to securely externalize your application configurations with Spring Cloud Config.
+          		</p>
+        	</div>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/workshops/java-spring/spring-cloud-contracts}">Spring Cloud Contracts</a></strong>
+            		Learn how to implement Consumer Driven Contracts and mock your microservices for unit testing with Spring Cloud Contracts.
+          		</p>
+        	</div>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/workshops/java-spring/circuit-breakers}">Circuit Breakers</a></strong>
+            		Learn how to implement the Circuit Breaker pattern with Spring.
+          		</p>
+        	</div>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/workshops/java-spring/spring-metrics}">Spring Metrics</a></strong>
+            		Learn about the application metrics that are available by leveraging actuator with Spring Metrics.
+          		</p>
+        	</div>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/workshops/java-spring/spring-vault}">Spring Vault</a></strong>
+            		Learn how to use Spring Vault to seamlessly integrate with your secure vaults.
+          		</p>
+        	</div>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/workshops/java-spring/spring-security}">Spring Security</a></strong>
+            		Learn how to leverage Spring Security to protect your applications.
+          		</p>
+        	</div>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/workshops/java-spring/spring-data}">Spring Data</a></strong>
+            		Learn how to use Spring Data as an abstraction from your data sources.
+          		</p>
+        	</div>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/workshops/java-spring/spring-integration}">Spring Integration</a></strong>
+            		Spring Integration provides support for Enterprise Integration Patterns in messaging systems.
+          		</p>
+        	</div>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/workshops/java-spring/spring-batch}">Spring Batch</a></strong>
+            		Learn how to leverage Spring Batch for scheduled workloads.
+          		</p>
+        	</div>
+      	</div> 
+      	
+      	<div class="my-3 p-3 bg-white rounded box-shadow">
+        	<h6 class="border-bottom border-gray pb-2 mb-0">.NET</h6>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/workshops/dot-net/steeltoe}">Steeltoe</a></strong>
+            		This workshop provides an overview of Steeltoe and how the capabilities that it provides to .NET developers.
+          		</p>
+        	</div>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/workshops/dot-net/cloud-configruration}">Cloud Configuration</a></strong>
+            		Learn how to leverage external cloud configuration on the platform.
+          		</p>
+        	</div>
+      	</div>
+
+      	<div class="my-3 p-3 bg-white rounded box-shadow">
+        	<h6 class="border-bottom border-gray pb-2 mb-0">NodeJS</h6>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/workshops/nodejs/deployment}">Deployment</a></strong>
+            		Learn how to deploy a NodeJS sample app to the platform.
+          		</p>
+        	</div>
+      	</div>
+      	
+      	<div class="my-3 p-3 bg-white rounded box-shadow">
+        	<h6 class="border-bottom border-gray pb-2 mb-0">CI/CD</h6>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/workshops/ci-cd/concourse}">Concourse</a></strong>
+            		Learn how Concourse can enable developers and platform operators to automate their path to production.
+          		</p>
+        	</div>
+      	</div>
+
+		<div class="mx-auto" style="height:100px"></div>	
+		
+	</div>	
+	
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
+</body>
+</html>

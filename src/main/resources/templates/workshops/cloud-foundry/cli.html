@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link href="../static/css/style.css" th:href="@{/css/style.css}"
+	rel="stylesheet" />
+
+<title>Cloud Ready - Cloud Foundry CLI</title>
+</head>
+
+<body>
+	<div th:replace="fragments/header-3.3 :: header">&nbsp;</div>
+
+	<div class="mx-auto" style="height: 10px"></div>
+
+	<div class="container">
+
+		<div class="alert bg-pivoteal" style="color:#FFFFFF" role="alert">
+        	<strong>Cloud Foundry CLI</strong>
+        	<p><small>Source Credit: Cloud Foundry Docs</small></p>
+      	</div>
+		
+		<ul class="nav nav-tabs">
+			<li class="active"><a data-toggle="tab" href="#home">Install</a></li>
+			<li><a data-toggle="tab" href="#menu1">Getting Started</a></li>
+			<li><a data-toggle="tab" href="#menu2">Using with a Proxy</a></li>
+			<li><a data-toggle="tab" href="#menu3">Self-Signed Certificate</a></li>
+			<li><a data-toggle="tab" href="#menu3">CLI Plugins</a></li>
+			<li><a data-toggle="tab" href="#menu3">CLI Reference</a></li>
+		</ul>
+
+		<div class="tab-content">
+			<div id="home" class="tab-pane fade in active">
+				<h1 class="title-container">Installing the cf CLI</h1>
+				<p>
+					This topic describes how to install the Cloud Foundry Command Line
+					Interface (cf CLI). Follow the instructions below for your
+					operating system. If you previously used the cf CLI v5 Ruby gem, <a
+						href="#version5">uninstall</a> this gem first.
+				</p>
+
+				<p>You can install the cf CLI with a package manager, an
+					installer, or a compressed binary.</p>
+
+				<h2 id="use-a-package-manager">
+					<a id="pkg"></a>Use a Package Manager
+				</h2>
+
+				<h3 id="-mac-os-x-installation">
+					<a id='pkg-mac'></a> Mac OS X Installation
+				</h3>
+
+				<p>
+					For Mac OS X, perform the following steps to install the cf CLI
+					with <a href="http://brew.sh/">Homebrew</a>:
+				</p>
+
+				<ol>
+					<li>Tap the Cloud Foundry formula <a
+						href="https://github.com/cloudfoundry/homebrew-tap">repository</a>:
+						<pre class="terminal">$ brew tap cloudfoundry/tap</pre></li>
+					<li>Install the cf CLI: <pre class="terminal">$ brew install cf-cli</pre></li>
+				</ol>
+
+				<h3 id="-linux-installation">
+					<a id='pkg-linux'></a> Linux Installation
+				</h3>
+
+				<p>For Debian and Ubuntu-based Linux distributions, perform the
+					following steps:</p>
+
+				<ol>
+					<li>Add the Cloud Foundry Foundation public key and package
+						repository to your system: <pre class="terminal">$ wget -q -O - https<span>:</span>//packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add -</pre>
+						<pre class="terminal">$ echo &quot;deb https<span>:</span>//packages.cloudfoundry.org/debian stable main&quot; | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list</pre>
+					</li>
+					<li>Update your local package index: <pre class="terminal">$ sudo apt-get update</pre></li>
+					<li>Install the cf CLI: <pre class="terminal">$ sudo apt-get install cf-cli</pre></li>
+				</ol>
+
+				<p>For Enterprise Linux and Fedora systems (RHEL6/CentOS6 and
+					up), perform the following steps:</p>
+
+				<ol>
+					<li>Configure the Cloud Foundry Foundation package repository:
+						<pre class="terminal">$ sudo wget -O /etc/yum.repos.d/cloudfoundry-cli.repo https<span>:</span>//packages.cloudfoundry.org/fedora/cloudfoundry-cli.repo</pre>
+					</li>
+					<li>Install the cf CLI, which also downloads and adds the
+						public key to your system: <pre class="terminal">$ sudo yum install cf-cli</pre>
+					</li>
+				</ol>
+
+				<h2 id="use-an-installer">
+					<a id="installer"></a>Use an Installer
+				</h2>
+
+				<p>Follow the instructions for your operating system below.</p>
+
+				<h3 id="windows-installation">
+					<a id="windows"></a>Windows Installation
+				</h3>
+
+				<p>To use the cf CLI installer for Windows, perform the
+					following steps:</p>
+
+				<ol>
+					<li>Download <a
+						href="https://cli.run.pivotal.io/stable?release=windows64&amp;source=github">the
+							Windows installer</a>.
+					</li>
+					<li>Unpack the zip file.</li>
+					<li>Double click the <code>cf CLI</code> executable.
+					</li>
+					<li>When prompted, click <strong>Install</strong>, then <strong>Close</strong>.
+					</li>
+					<li>To verify your installation, open a terminal window and
+						type <code>cf</code>. If your installation was successful, the cf
+						CLI help listing appears.
+					</li>
+				</ol>
+
+				<h3 id="mac-os-x-installation">
+					<a id="mac"></a>Mac OS X Installation
+				</h3>
+
+				<p>To use the cf CLI installer for Mac OS X, perform the
+					following steps:</p>
+
+				<ol>
+					<li>Download <a
+						href="https://cli.run.pivotal.io/stable?release=macosx64&amp;source=github">the
+							OS X installer</a>.
+					</li>
+					<li>Open the <code>.pkg</code> file.
+					</li>
+					<li>In the installer wizard, click <strong>Continue</strong>.
+					</li>
+					<li>Select an install destination and click <strong>Continue</strong>.
+					</li>
+					<li>When prompted, click <strong>Install</strong>.
+					</li>
+					<li>To verify your installation, open a terminal window and
+						type <code>cf</code>. If your installation was successful, the cf
+						CLI help listing appears.
+					</li>
+				</ol>
+
+				<h3 id="linux-installation">
+					<a id="linux"></a>Linux Installation
+				</h3>
+
+				<p>To use the cf CLI installer for Linux, perform the following
+					steps:</p>
+
+				<ol>
+					<li>Download the Linux installer for your <a
+						href="https://cli.run.pivotal.io/stable?release=debian64&amp;source=github">Debian/Ubuntu</a>
+						or <a
+						href="https://cli.run.pivotal.io/stable?release=redhat64&amp;source=github">Red
+							Hat</a> system.
+					</li>
+					<li>Install using your system&rsquo;s package manager. Note
+						these commands may require <code>sudo</code>.
+
+						<ul>
+							<li>For Debian/Ubuntu, run the following command: <pre
+									class="terminal">$ dpkg -i path/to/cf-cli-*.deb &amp;&amp; apt-get install -f</pre></li>
+							<li>For Red Hat, run the following command: <pre
+									class="terminal">rpm -i path/to/cf-cli-*.rpm</pre></li>
+						</ul>
+					</li>
+					<li>To verify your installation, open a terminal window and
+						type <code>cf</code>. If your installation was successful, the cf
+						CLI help listing appears.
+					</li>
+				</ol>
+
+				<h2 id="use-a-compressed-binary">
+					<a id="bin"></a>Use a Compressed Binary
+				</h2>
+
+				<p>
+					Download the compressed binary for Mac OS X, Windows, or Linux from
+					the cf CLI GitHub <a
+						href="https://github.com/cloudfoundry/cli#installers-and-compressed-binaries">repository</a>
+					and install it on your system.
+				</p>
+
+				<p>The specific procedures vary by operating system, but the
+					following example illustrates downloading and installing the binary
+					on Mac OS X:</p>
+
+				<ol>
+					<li>Download and extract the Mac OS X binary: <pre
+							class="terminal">$ curl -L &quot;https<span>:</span>//cli.run.pivotal.io/stable?release=macosx64-binary&amp;source=github&quot; | tar -zx</pre></li>
+					<li>Move it to <code>/usr/local/bin</code>, or another
+						location in your <code>$PATH</code>: <pre class="terminal">$ mv cf /usr/local/bin</pre></li>
+					<li>Confirm your cf CLI version: <pre class="terminal">$ cf --version</pre></li>
+				</ol>
+
+				<h2 id="next-steps">
+					<a id="nextstep"></a>Next Steps
+				</h2>
+
+				<p>
+					See <a href="/cf-cli/getting-started.html">Getting Started with
+						cf CLI</a> for more information about how to use the cf CLI.
+				</p>
+
+				<p>
+					We recommend that you review our <a
+						href="https://github.com/cloudfoundry/cli/releases">CLI
+						releases page</a> to learn when updates are released, and download a
+					new binary or a new installer when you want to update to the latest
+					version.
+				</p>
+
+				<h2 id="uninstall-the-cf-cli">
+					<a id="uninstall"></a>Uninstall the cf CLI
+				</h2>
+
+				<h3 id="package-manager">
+					<a id="uninstall-pkg"></a>Package Manager
+				</h3>
+
+				<p>If you previously installed the cf CLI with a package
+					manager, follow the instructions specific to your package manager
+					to uninstall the cf CLI.</p>
+
+				<p>The specific procedures vary by package manager, but the
+					following example illustrates uninstalling the cf CLI with
+					Homebrew:</p>
+
+				<pre class="terminal">$ brew uninstall cf-cli</pre>
+
+				<h3 id="installer">
+					<a id="uninstall-installer"></a>Installer
+				</h3>
+
+				<p>If you previously installed the cf CLI with an installer,
+					perform the instructions specific to your operating system to
+					uninstall the cf CLI:</p>
+
+				<ul>
+					<li><p>
+							For Mac OS, delete the binary
+							<code>/usr/local/bin/cf</code>
+							, and the directory
+							<code>/usr/local/share/doc/cf-cli</code>
+							.
+						</p></li>
+					<li><p>
+							For Windows, navigate to the <strong>Control Panel</strong>,
+							click <strong>Programs and Features</strong>, select
+							<code>Cloud Foundry CLI VERSION</code>
+							and click <strong>Uninstall</strong>.
+						</p></li>
+				</ul>
+
+				<h3 id="binary">
+					<a id="uninstall-binary"></a>Binary
+				</h3>
+
+				<p>If you previously installed a cf CLI binary, remove the
+					binary from where you copied it.</p>
+
+				<h3 id="cf-cli-v5">
+					<a id="version5"></a>cf CLI v5
+				</h3>
+
+				<p>
+					To uninstall, run
+					<code>gem uninstall cf</code>
+					.
+				</p>
+
+				<p class="note">
+					<strong>Note</strong>: To ensure that your Ruby environment manager
+					registers the change, close and reopen your terminal.
+				</p>
+			</div>
+			<div id="menu1" class="tab-pane fade">
+				
+			</div>
+			<div id="menu2" class="tab-pane fade">
+				
+			</div>
+			<div id="menu3" class="tab-pane fade">
+				
+			</div>
+		</div>
+
+		<div class="mx-auto" style="height: 100px"></div>
+
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

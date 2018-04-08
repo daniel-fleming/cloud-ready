@@ -17,5 +17,15 @@ public class StaticController {
 	public String ephemerol(Model model) {
 		return "ephemerol";
 	}
+	
+	@RequestMapping(value = "/spring-initializr")
+	public String springInitialzr(Model model) {
+		return "spring-initializr";
+	}
+	
+	@RequestMapping(value = "/code-samples")
+	public String codeSamples(Model model) {
+		return "code-samples";
+	}
 
 }

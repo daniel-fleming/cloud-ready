@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" />
+<link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+
+<title>Cloud Ready - Code Samples</title>
+</head>
+
+<body class="bg-light">
+	<div th:replace="fragments/header :: header">&nbsp;</div>
+	
+	<div class="mx-auto" style="height:10px"></div>
+
+	<div class="container">
+	
+		<div class="d-flex align-items-center p-3 my-3 text-white-50 bg-pivoteal rounded box-shadow">
+        	<div class="lh-100">
+          		<h6 class="mb-0 text-white lh-100">Code Samples</h6>
+          		<small></small>
+        	</div>
+      	</div>
+      	
+      	<div class="my-3 p-3 bg-white rounded box-shadow">
+        	<h6 class="border-bottom border-gray pb-2 mb-0">Java/Spring</h6>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a href="https://github.com/cloudfoundry-samples/spring-music" target="_blank">Spring Music</a></strong>
+            		This is a sample application for using database services on Cloud Foundry with the Spring Framework and Spring Boot.
+          		</p>
+        	</div>  
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a href="https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples/spring-boot-sample-activemq" target="_blank">Spring ActiveMQ</a></strong>
+            		Spring Boot sample with ActiveMQ integration.
+          		</p>
+        	</div>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a href="https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples/spring-boot-sample-actuator" target="_blank">Spring Actuator</a></strong>
+            		Spring Boot sample with Actuator metrics.
+          		</p>
+        	</div>  
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a href="https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples/spring-boot-sample-batch" target="_blank">Spring Batch</a></strong>
+            		Spring Boot sample for batch jobs.
+          		</p>
+        	</div> 
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a href="https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples/spring-boot-sample-cache" target="_blank">Spring Cache</a></strong>
+            		Spring Boot sample with Spring cache integration.
+          		</p>
+        	</div>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a href="https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples/spring-boot-sample-data-jpa" target="_blank">Spring Data JPA</a></strong>
+            		Spring Boot sample with Spring Data JPA to demonstrate how to model and integrate data elements.
+          		</p>
+        	</div> 
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a href="https://github.com/spring-projects/spring-boot/tree/master/spring-boot-samples/spring-boot-sample-web-ui" target="_blank">Spring UI Sample App</a></strong>
+            		Simple UI application with Spring and Bootstrap.
+          		</p>
+        	</div>	
+      	</div> 
+      	
+      	<div class="my-3 p-3 bg-white rounded box-shadow">
+        	<h6 class="border-bottom border-gray pb-2 mb-0">.NET</h6>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a href="https://github.com/corn-pivotal/Fortune-Demo-Core2" target="_blank">.NET Fortune Teller Demo</a></strong>
+            		Full-featured .NET demo application that demonstrates config server integration, Eureka service discovery, messaging, caching and many other features.
+          		</p>
+        	</div>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a href="https://github.com/cloudfoundry-samples/dotnet-core-hello-world" target="_blank">.NET Core Hello World</a></strong>
+            		Simple .NET Core Hello World application ready to deploy on Cloud Foundry.
+          		</p>
+        	</div>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a href="https://github.com/pivotal-cf/spring-cloud-dotnet-configuration" target="_blank">.NET Core Configuration Sample</a></strong>
+            		.NET Core sample application that integrates with the Config Server for Pivotal Cloud Foundry.
+          		</p>
+        	</div>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a href="https://github.com/pivotal-cf/spring-cloud-dotnet-discovery" target="_blank">.NET Core Discovery Sample</a></strong>
+            		.NET Core sample application that integrates with Cloud Discovery for Pivotal Cloud Foundry.
+          		</p>
+        	</div>
+      	</div>
+
+      	<div class="my-3 p-3 bg-white rounded box-shadow">
+        	<h6 class="border-bottom border-gray pb-2 mb-0">NodeJS</h6>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a href="https://github.com/cloudfoundry-samples/cf-sample-app-nodejs" target="_blank">Cloud Foundry Sample Node App</a></strong>
+            		Sample NodeJS application ready for Cloud Foundry deployment.
+          		</p>
+        	</div>        	
+      	</div>
+      	
+      	<div class="my-3 p-3 bg-white rounded box-shadow">
+        	<h6 class="border-bottom border-gray pb-2 mb-0">Go</h6>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a href="https://github.com/cloudfoundry-samples/logging-route-service" target="_blank">Logging Route Service</a></strong>
+            		An example route service for Cloud Foundry written in Go.
+          		</p>
+        	</div>        	
+      	</div>
+
+		<div class="mx-auto" style="height:100px"></div>	
+		
+	</div>	
+	
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" />
+<link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+
+<title>Cloud Ready - Patterns</title>
+</head>
+
+<body class="bg-light">
+	<div th:replace="fragments/header :: header">&nbsp;</div>
+	
+	<div class="mx-auto" style="height:10px"></div>
+
+	<div class="container">
+	
+		<div class="d-flex align-items-center p-3 my-3 text-white-50 bg-pivoteal rounded box-shadow">
+        	<div class="lh-100">
+          		<h6 class="mb-0 text-white lh-100">Cloud Native Architecture Patterns</h6>
+          		<small></small>
+        	</div>
+      	</div>
+      	
+      	<div class="my-3 p-3 bg-white rounded box-shadow">
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/patterns/microservices}">Microservices Patterns</a></strong>
+            		Learn more about common themes in microservices development and opinionated best practices.
+          		</p>
+        	</div>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/patterns/orchestration-saga}">Orchestration Saga Pattern</a></strong>
+            		Learn more about how to use the orchestration saga pattern for managing distributed transactions.
+          		</p>
+        	</div>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/patterns/circuit-breaker}">Circuit Breaker Pattern</a></strong>
+            		Learn how to leverage the circuit breaker pattern to implement highly resilient microservices.
+          		</p>
+        	</div>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/patterns/service-broker}">Service Broker Pattern</a></strong>
+            		Learn about service brokers and how to integrate systems inside and outside of the platform.
+          		</p>
+        	</div>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/workshops/patterns/event-sourcing}">Event Sourcing Pattern</a></strong>
+            		Learn best practices for capturing state changes reliably and atomically in an event object.
+          		</p>
+        	</div>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/workshops/patterns/decomposition}">Decomposition Patterns</a></strong>
+            		Learn about best practices for decomposing monolithic systems in microservices.
+          		</p>
+        	</div>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/workshops/patterns/command-query-segregation}">Command Query Responsibility Segregation (CQRS) Pattern</a></strong>
+            		Learn how to separate read and write concerns in high-concurrency systems with low-latency requirements.
+          		</p>
+        	</div>
+        	<div class="media text-muted pt-3">
+          		<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+            		<strong class="d-block text-gray-dark"><a th:href="@{~/workshops/patterns/enterprise-integration}">Enterprise Integration Patterns</a></strong>
+            		Learn how to leverage Enterprise Integration patterns and best practices for event-driven design.
+          		</p>
+        	</div>
+      	</div> 
+
+		<div class="mx-auto" style="height:100px"></div>	
+		
+	</div>	
+	
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
+</body>
+</html>
