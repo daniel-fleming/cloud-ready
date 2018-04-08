@@ -3,8 +3,8 @@
 <head></head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-light" th:fragment="header">
-    <!-- <a href="#" class="navbar-left"><img th:src="@{/images/pcf.png}" width="250" height="50"/></a> -->
-    <a class="navbar-brand" th:href="@{~/}">Pivotal Cloud Ready</a>
+    <a th:href="@{~/}" class="navbar-left"><img th:src="@{/images/pivotal_logo.png}" width="163" height="68" style="filter: brightness(0) invert(1);"/></a> 
+    <!-- <a class="navbar-brand" th:href="@{~/}" style="font-size:0.9em;">Cloud Ready Platform</a> -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -14,7 +14,13 @@
           <a th:href="@{~/ephemerol}" class="nav-link" href="#">Ephemerol</a>
         </li>
         <li class="nav-item">
-          <a href="https://apps.system.danielfleming.net" class="nav-link">Cloud Native Workshop</a>
+          <a th:href="@{~/workshop}" class="nav-link">Cloud Native Workshop</a>
+        </li>
+        <li class="nav-item">
+          <a th:href="@{~/patterns}" class="nav-link">Patterns</a>
+        </li>
+        <li class="nav-item">
+          <a th:href="@{~/samples}" class="nav-link">Sample Code</a>
         </li>
       </ul>
     </div>
