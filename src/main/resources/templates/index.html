@@ -10,16 +10,28 @@
 <title>Cloud Ready</title>
 </head>
 
-<body>
+<body class="bg-light">
 	<div th:replace="fragments/header :: header">&nbsp;</div>
 	
 	<div class="mx-auto" style="height:10px"></div>
 
 	<div class="container">
+	
+		<div class="mx-auto" style="height:50px"></div>
+	
+		<div class="text-center">
+		  <h2>Pivotal Cloud Ready Enablement Platform</h2>
+		</div>
+		
+		<div class="mx-auto" style="height:50px"></div>
+	
+		<img th:src="@{/images/pcf_architecture_dark.png}" width="1026" height="629" />
 
-		<div class="mx-auto" style="height:100px"></div>	
+		<div class="mx-auto" style="height:100px"></div>
 		
 	</div>	
+	
+	<div th:replace="fragments/footer :: footer">&nbsp;</div>
 	
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
