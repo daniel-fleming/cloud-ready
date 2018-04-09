@@ -5,10 +5,8 @@
 <meta charset="utf-8" />
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-<link href="../static/css/style.css" th:href="@{/css/style.css}"
-	rel="stylesheet" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
 
 <title>Cloud Ready - Cloud Foundry CLI</title>
 </head>
@@ -20,18 +18,20 @@
 
 	<div class="container">
 
-		<div class="alert bg-pivoteal" style="color:#FFFFFF" role="alert">
-        	<strong>Cloud Foundry CLI</strong>
-        	<p><small>Source Credit: Cloud Foundry Docs</small></p>
-      	</div>
-		
+		<div class="alert bg-pivoteal" style="color: #FFFFFF" role="alert">
+			<strong>Cloud Foundry CLI</strong>
+			<p>
+				<small>Source Credit: Cloud Foundry Docs</small>
+			</p>
+		</div>
+
 		<ul class="nav nav-tabs">
 			<li class="active"><a data-toggle="tab" href="#home">Install</a></li>
 			<li><a data-toggle="tab" href="#menu1">Getting Started</a></li>
 			<li><a data-toggle="tab" href="#menu2">Using with a Proxy</a></li>
 			<li><a data-toggle="tab" href="#menu3">Self-Signed Certificate</a></li>
-			<li><a data-toggle="tab" href="#menu3">CLI Plugins</a></li>
-			<li><a data-toggle="tab" href="#menu3">CLI Reference</a></li>
+			<li><a data-toggle="tab" href="#menu4">CLI Plugins</a></li>
+			<li><a data-toggle="tab" href="#menu5">CLI Reference</a></li>
 		</ul>
 
 		<div class="tab-content">
@@ -285,14 +285,714 @@
 				</p>
 			</div>
 			<div id="menu1" class="tab-pane fade">
-				
+				<h1 class="title-container">Getting Started with the cf CLI</h1>
+
+				<p>
+					This topic describes configuring and getting started with the Cloud
+					Foundry Command Line Interface (cf CLI). This page assumes you have
+					the latest version of the cf CLI. See the <a
+						href="/cf-cli/install-go-cli.html">Installing the Cloud
+						Foundry Command Line Interface</a> topic for installation
+					instructions.
+				</p>
+
+				<h2 id="localize">
+					<a id='i18n'></a>Localize
+				</h2>
+
+				<p>
+					The cf CLI translates terminal output into the language that you
+					select. The default language is
+					<code>en-US</code>
+					. The cf CLI supports the following languages:
+				</p>
+
+				<ul>
+					<li>Chinese (simplified): <code>zh-Hans</code></li>
+					<li>Chinese (traditional): <code>zh-Hant</code></li>
+					<li>English: <code>en-US</code></li>
+					<li>French: <code>fr-FR</code></li>
+					<li>German: <code>de-DE</code></li>
+					<li>Italian: <code>it-IT</code></li>
+					<li>Japanese: <code>ja-JP</code></li>
+					<li>Korean: <code>ko-KR</code></li>
+					<li>Portuguese (Brazil): <code>pt-BR</code></li>
+					<li>Spanish: <code>es-ES</code></li>
+				</ul>
+
+				<p>
+					Use <a href="http://cli.cloudfoundry.org/en-US/cf/config.html">cf
+						config</a> to set the language. To set the language with
+					<code>cf config</code>
+					, use the syntax:
+					<code>$ cf config --locale YOUR_LANGUAGE </code>
+					.
+				</p>
+
+				<p>
+					For example, to set the language to Portuguese and confirm the
+					change by running
+					<code>cf help</code>
+					:
+				</p>
+
+				<pre class="terminal">
+$ cf config --locale pt-BR
+$ cf help
+NOME:
+   cf - Uma ferramenta de linha de comando para interagir com Cloud Foundry
+
+USO:
+   cf [opções globais] comando [argumentos...] [opções de comando]
+
+VERSÃO:
+   6.14.1+dc6adf6-2015-12-22
+   ...
+</pre>
+
+				<p class='note'>
+					<strong>Note</strong>: Localization with
+					<code>cf config --locale</code>
+					affects only messages that the cf CLI generates.
+				</p>
+
+				<h2 id="login">
+					<a id='login'></a>Login
+				</h2>
+
+				<p>
+					Use <a href="http://cli.cloudfoundry.org/en-US/cf/login.html">cf
+						login</a> to log in to Cloud Foundry. The
+					<code>cf login</code>
+					command uses the following syntax to specify a target API endpoint,
+					an org (organization), and a space:
+					<code>$ cf login [-a API_URL] [-u USERNAME] [-p PASSWORD]
+						[-o ORG] [-s SPACE] </code>
+					.
+				</p>
+
+				<ul>
+					<li><code>API_URL</code>: This is your API endpoint, <a
+						href="http://docs.cloudfoundry.org/running/cf-api-endpoint.html">the
+							URL of the Cloud Controller in your Cloud Foundry instance</a>.</li>
+					<li><code>USERNAME</code>: Your username.</li>
+					<li><code>PASSWORD</code>: Your password. Use of the <code>-p</code>
+						option is discouraged as it may record your password in your shell
+						history.</li>
+					<li><code>ORG</code>: The org where you want to deploy your
+						apps.</li>
+					<li><code>SPACE</code>: The space in the org where you want to
+						deploy your apps.</li>
+				</ul>
+
+				<p>
+					The cf CLI prompts for credentials as needed. If you are a member
+					of multiple orgs or spaces,
+					<code>cf login</code>
+					prompts you for which ones to log into. Otherwise it targets your
+					org and space automatically.
+				</p>
+
+				<pre class="terminal">
+$ cf login -a https://api.example.com -u username<span>@</span>example.com
+API endpoint: https://api.example.com
+
+Password>
+Authenticating...
+OK
+
+Select an org (or press enter to skip):
+1. example-org
+2. example-other-org
+
+Org> 1
+Targeted org example-org
+
+Select a space (or press enter to skip):
+1. development
+2. staging
+3. production
+
+Space> 1
+Targeted space development
+
+</pre>
+
+				<p>
+					Alternatively, you can write a script to log in and set your target
+					using the non-interactive <a
+						href="http://cli.cloudfoundry.org/en-US/cf/api.html">cf api</a>, <a
+						href="http://cli.cloudfoundry.org/en-US/cf/auth.html">cf auth</a>,
+					and <a href="http://cli.cloudfoundry.org/en-US/cf/target.html">cf
+						target</a> commands.
+				</p>
+
+				<p>
+					Upon successful login, the cf CLI saves a
+					<code>config.json</code>
+					file containing your API endpoint, org, space values, and access
+					token. If you change these settings, the
+					<code>config.json</code>
+					file is updated accordingly.
+				</p>
+
+				<p>
+					By default,
+					<code>config.json</code>
+					is located in your
+					<code>~/.cf</code>
+					directory. The
+					<code>CF_HOME</code>
+					environment variable allows you to locate the
+					<code>config.json</code>
+					file wherever you like.
+				</p>
+
+				<h2 id="-users-and-roles">
+					<a id='user-roles'></a> Users and Roles
+				</h2>
+
+				<p>
+					The cf CLI includes commands that list users and assign roles in
+					orgs and spaces. See the <a href="/concepts/roles.html">Orgs,
+						Spaces, Roles, and Permissions</a> topic.
+				</p>
+
+				<h3 id="commands-for-listing-users">
+					<a id='listing-users'></a>Commands for Listing Users
+				</h3>
+
+				<p>These commands take an org or space as an argument:</p>
+
+				<ul>
+					<li><p>
+							<a href="http://cli.cloudfoundry.org/en-US/cf/org-users.html">cf
+								org-users</a>
+						</p></li>
+					<li><p>
+							<a href="http://cli.cloudfoundry.org/en-US/cf/space-users.html">cf
+								space-users</a>
+						</p></li>
+				</ul>
+
+				<p>For example, to list the users who are members of an org:</p>
+
+				<pre class="terminal">
+$ cf org-users example-org
+Getting users in org example-org as username<span>@</span>example.com...
+
+ORG MANAGER
+  username<span>@</span>example.com
+
+BILLING MANAGER
+  huey<span>@</span>example.com
+  dewey<span>@</span>example.com
+
+ORG AUDITOR
+  louie<span>@</span>example.com
+</pre>
+
+				<h3 id="commands-for-managing-roles">
+					<a id='managing-roles'></a>Commands for Managing Roles
+				</h3>
+
+				<p>These commands require Cloud Foundry admin permissions and
+					take username, org or space, and role as arguments:</p>
+
+				<ul>
+					<li><p>
+							<a href="http://cli.cloudfoundry.org/en-US/cf/set-org-role.html">cf
+								set-org-role</a>
+						</p></li>
+					<li><p>
+							<a
+								href="http://cli.cloudfoundry.org/en-US/cf/unset-org-role.html">cf
+								unset-org-role</a>
+						</p></li>
+					<li><p>
+							<a
+								href="http://cli.cloudfoundry.org/en-US/cf/set-space-role.html">cf
+								set-space-role</a>
+						</p></li>
+					<li><p>
+							<a
+								href="http://cli.cloudfoundry.org/en-US/cf/unset-space-role.html">cf
+								unset-space-role</a>
+						</p></li>
+				</ul>
+
+				<p>
+					Available roles are
+					<code>OrgManager</code>
+					,
+					<code>BillingManager</code>
+					,
+					<code>OrgAuditor</code>
+					,
+					<code>SpaceManager</code>
+					,
+					<code>SpaceDeveloper</code>
+					, and
+					<code>SpaceAuditor</code>
+					. For example, to grant the Org Manager role to a user within an
+					org:
+				</p>
+
+				<pre class="terminal">
+$ cf set-org-role huey@example.com example-org OrgManager
+
+Assigning role OrgManager to user huey<span>@</span>example.com in org example-org as username<span>@</span>example.com...
+OK
+</pre>
+
+				<p class="note">
+					<strong>Note</strong>: If you are not a Cloud Foundry admin, you
+					see this message when you try to run these commands:
+					<code>error code: 10003, message: You are not authorized to
+						perform the requested action</code>
+				</p>
+
+				<h4 id="identical-usernames-in-multiple-origins">
+					<a id='multi-origin'></a>Identical Usernames in Multiple Origins
+				</h4>
+
+				<p>
+					If a username corresponds to multiple accounts from different user
+					stores, such as both the internal UAA store and an external SAML or
+					LDAP store, the
+					<code>set</code>
+					and
+					<code>unset</code>
+					role commands above return an error:
+					<code>The user exists in multiple origins. Specify an origin
+						for the requested user from: ‘uaa’, ‘other’</code>
+				</p>
+
+				<p>
+					To resolve this ambiguity, the operator can construct a
+					<code>curl</code>
+					command that uses the CF API to perform the desired role-management
+					function. For an example, see the <a
+						href="http://apidocs.cloudfoundry.org/280/organizations/associate_auditor_with_the_organization_by_username.html">PUT
+						v2/organizations/:guid/auditors</a> API function.
+				</p>
+
+				<h2 id="push">
+					<a id='push'></a>Push
+				</h2>
+
+				<p>
+					The <a href="http://cli.cloudfoundry.org/en-US/cf/push.html">cf
+						push</a> command pushes a new app or syncs changes to an existing app.
+				</p>
+
+				<p>
+					If you do not provide a hostname (also known as subdomain),
+					<code>cf push</code>
+					routes your app to a URL of the form
+					<code>APPNAME.DOMAIN</code>
+					based on the name of your app and your default domain. If you want
+					to map a different route to your app, see the <a
+						href="/devguide/deploy-apps/routes-domains.html">Routes and
+						Domains</a> topic for information about creating routes.
+				</p>
+
+				<p>
+					The
+					<code>cf push</code>
+					command supports many options that determine how and where the app
+					instances are deployed. For details about the
+					<code>cf push</code>
+					command, see the <a
+						href="http://cli.cloudfoundry.org/en-US/cf/push.html">push</a>
+					page in the Cloud Foundry CLI Reference Guide.
+				</p>
+
+				<p>
+					The following example pushes an app called
+					<code>my-awesome-app</code>
+					to the URL
+					<code>http://my-awesome-app.example.com</code>
+					and specifies the Ruby buildpack with the
+					<code>-b</code>
+					flag.
+				</p>
+
+				<p class="note">
+					<strong>Note</strong>: When you push an app and specify a buildpack
+					with the
+					<code>-b</code>
+					flag, the app remains permanently linked to that buildpack. To use
+					the app with a different buildpack, you must delete the app and
+					re-push it.
+				</p>
+
+				<pre class="terminal">
+$ cf push my-awesome-app -b ruby_buildpack
+Creating app my-awesome-app in org example-org / space development as username@example.com...
+OK
+
+Creating route my-awesome-app.example.com...
+OK
+...
+
+1 of 1 instances running
+
+App started
+...
+
+requested state: started
+instances: 1/1
+usage: 1G x 1 instances
+urls: my-awesome-app.example.com
+last uploaded: Wed Jun 8 23:43:15 UTC 2016
+stack: cflinuxfs2
+buildpack: ruby_buildpack
+
+     state     since                    cpu    memory    disk      details
+#0   running   2016-06-08 04:44:07 PM   0.0%   0 of 1G   0 of 1G
+</pre>
+
+				<p>
+					For more information about available buildpacks, see the <a
+						href="../buildpacks/">Buildpacks</a> topic.
+				</p>
+
+				<h2 id="-user-provided-service-instances">
+					<a id='user-provided'></a> User-Provided Service Instances
+				</h2>
+
+				<p>To create or update a user-provided service instance, you
+					need to supply basic parameters. For example a database service
+					might require a username, password, host, port, and database name.</p>
+
+				<p>
+					The cf CLI has three ways of supplying these parameters to create
+					or update an instance of a service: interactively,
+					non-interactively, and in conjunction with third-party log
+					management software as described in <a
+						href="http://tools.ietf.org/html/rfc6587">RFC 6587</a>. When used
+					with third-party logging, the cf CLI sends data formatted according
+					to <a href="http://tools.ietf.org/html/rfc5424">RFC 5424</a>.
+				</p>
+
+				<p>
+					You create a service instance with
+					<code>cf cups</code>
+					and update one with
+					<code>cf uups</code>
+					as described below.
+				</p>
+
+				<h3 id="the-cf-create-user-provided-service-(cups)-command">
+					<a id='user-cups'></a>The cf create-user-provided-service (cups)
+					Command
+				</h3>
+
+				<p>
+					Use <a
+						href="http://cli.cloudfoundry.org/en-US/cf/create-user-provided-service.html">cf
+						create-user-provided-service</a> (alias
+					<code>cf cups</code>
+					) creates a new service instance.
+				</p>
+
+				<p>
+					<strong>To supply service instance parameters
+						interactively:</strong> Specify parameters in a comma-separated list after
+					the
+					<code>-p</code>
+					flag. This example command-line session creates a service instance
+					for a database service.
+				</p>
+
+				<p>
+				<pre class="terminal">$ cf cups sql-service-instance -p &quot;host, port, dbname, username, password&quot;
+host&gt; mysql.example.com
+port&gt; 1433
+dbname&gt; mysqldb
+username&gt; admin
+password&gt; Pa55w0rd
+Creating user provided service sql-service-instance in org example-org / space development as <a href="mailto:username@example.com">username@example.com</a>...
+OK
+</pre>
+				</p>
+
+				<p>
+					<strong>To supply service instance parameters to <code>cf
+							cups</code> non-interactively:
+					</strong> Pass parameters and their values in as a JSON hash, bound by
+					single quotes, after the
+					<code>-p</code>
+					tag. This example is a non-interactive version of the
+					<code>cf cups</code>
+					session above.
+				</p>
+
+				<p>
+				<pre class="terminal">$ cf cups sql-service-instance -p &#39;{&quot;host&quot;:&quot;mysql.example.com&quot;, &quot;port&quot;:&quot;1433&quot;, &quot;dbname&quot;:&quot;mysqldb&quot;, &quot;username&quot;:&quot;admin&quot;,&quot;password&quot;:&quot;pa55woRD&quot;}&#39;
+Creating user provided service sql-service-instance in org example-org / space development as username<span>@</span>example.com...
+OK
+</pre>
+				</p>
+
+				<p>
+					<strong>To create a service instance that sends data to a
+						third-party:</strong> Use the
+					<code>-l</code>
+					option followed by the external destination URL. This example
+					creates a service instance that sends log information to the syslog
+					drain URL of a third-party log management service. For specific log
+					service instructions, see the <a
+						href="/devguide/services/log-management-thirdparty-svc.html">Service-Specific
+						Instructions for Streaming Application Logs</a> topic.
+				</p>
+
+				<p>
+				<pre class="terminal">$ cf cups mylog -l syslog://logs4.example.com:25258
+Creating user provided service mylog in org example-org / space development as username<span>@</span>example.com...
+OK
+</pre>
+				</p>
+
+				<p>
+					After you create a user-provided service instance, you bind it to
+					an app with <a
+						href="http://cli.cloudfoundry.org/en-US/cf/bind-service.html">cf
+						bind-service</a>, unbind it with <a
+						href="http://cli.cloudfoundry.org/en-US/cf/unbind-service.html">cf
+						unbind-service</a>, rename it with <a
+						href="http://cli.cloudfoundry.org/en-US/cf/rename-service.html">cf
+						rename-service</a>, and delete it with <a
+						href="http://cli.cloudfoundry.org/en-US/cf/delete-service.html">cf
+						delete-service</a>.
+				</p>
+
+				<h3 id="-the-cf-update-user-provided-service-(uups)-command">
+					<a id='user-uups'></a> The cf update-user-provided-service (uups)
+					Command
+				</h3>
+
+				<p>
+					Use <a
+						href="http://cli.cloudfoundry.org/en-US/cf/update-user-provided-service.html">cf
+						update-user-provided-service</a> (alias
+					<code>cf uups</code>
+					) to update one or more of the parameters for an existing
+					user-provided service instance. The
+					<code>cf uups</code>
+					command uses the same syntax as
+					<code>cf cups</code>
+					<a href="#user-cups">above</a> to set parameter values. The
+					<code>cf uups</code>
+					command does not update any parameter values that you do not
+					supply.
+				</p>
+
+				<h2 id="-cf-cli-return-codes">
+					<a id='return-codes'></a> cf CLI Return Codes
+				</h2>
+
+				<p>
+					The cf CLI uses exit codes, which help with scripting and
+					confirming that a command has run successfully. For example, after
+					you run a cf CLI command, you can retrieve its return code by
+					running
+					<code>echo $?</code>
+					(on Windows,
+					<code>echo %ERRORLEVEL%</code>
+					). If the return code is
+					<code>0</code>
+					, the command was successful.
+				</p>
+
+				<h2 id="-the-cf-help-command">
+					<a id='help'></a> The cf help Command
+				</h2>
+
+				<p>
+					The <a href="http://cli.cloudfoundry.org/en-US/cf">cf help</a>
+					command lists the cf CLI commands and a brief description of each.
+					Passing the
+					<code>-h</code>
+					flag to any command lists detailed help, including any aliases. For
+					example, to see detailed help for
+					<code>cf delete</code>
+					, run:
+				</p>
+
+				<pre class="terminal">
+$ cf delete -h
+NAME:
+   delete - Delete an app
+
+USAGE:
+   cf delete APP_NAME [-f -r]
+
+ALIAS:
+   d
+
+OPTIONS:
+   -f       Force deletion without confirmation
+   -r       Also delete any mapped routes
+</pre>
 			</div>
+			
 			<div id="menu2" class="tab-pane fade">
+
+				<h1 class="title-container">Using the cf CLI with a Proxy
+					Server</h1>
+					
+				<p>
+					If you have an HTTP or SOCKS5 proxy server on your network between
+					a host running the cf CLI and your Cloud Foundry API endpoint, you
+					must set
+					<code>https_proxy</code>
+					with the hostname or IP address of the proxy server.
+				</p>
+
+				<p>
+					The
+					<code>https_proxy</code>
+					environment variable holds the hostname or IP address of your proxy
+					server.
+				</p>
+
+				<p>
+					<code>https_proxy</code>
+					is a standard environment variable. Like any environment variable,
+					the specific steps you use to set it depends on your operating
+					system.
+				</p>
+
+				<h2 id="format-of-https_proxy">
+					<a id="format"></a>Format of https_proxy
+				</h2>
+
+				<p>
+					<code>https_proxy</code>
+					is set with hostname or IP address of the proxy server in URL
+					format:
+					<code>https_proxy=http://proxy.example.com</code>
+				</p>
+
+				<p>
+					If the proxy server requires a user name and password, include the
+					credentials:
+					<code>https_proxy=http://username:password@proxy.example.com</code>
+				</p>
+
+				<p>
+					If the proxy server uses a port other than 80, include the port
+					number:
+					<code>https_proxy=http://username:password@proxy.example.com:8080</code>
+				</p>
+
+				<p>
+					If the proxy server is a SOCKS5 proxy, specify the SOCKS5 protocol
+					in the URL:
+					<code>https_proxy=socks5://socks_proxy.example.com</code>
+				</p>
+
+				<p class="note">
+					<strong>Note</strong>:
+					<code>cf ssh</code>
+					does not work through a SOCKS5 proxy.
+				</p>
+
+				<h2 id="setting-https_proxy-in-mac-os-or-linux">
+					<a id="mac-linux"></a>Setting https_proxy in Mac OS or Linux
+				</h2>
+
+				<p>
+					Set the
+					<code>https_proxy</code>
+					environment variable using the command specific to your shell. For
+					example, in bash, use the
+					<code>export</code>
+					command.
+				</p>
+
+				<p>Example:
 				
-			</div>
-			<div id="menu3" class="tab-pane fade">
-				
-			</div>
+				<pre class=terminal>
+$ export https_proxy=http:/<span>/</span>my.proxyserver.com:8080
+</pre>
+				</p>
+
+				<p>
+					To make this change persistent, add the command to the appropriate
+					profile file for the shell. For example, in bash, add a line like
+					the following to your
+					<code>.bash_profile</code>
+					or
+					<code>.bashrc</code>
+					file:
+				</p>
+
+				<pre class="detect-script"t>
+  https_proxy=http://username:password@hostname:port
+  export $https_proxy
+</pre>
+
+				<h2 id="setting-https_proxy-in-windows">
+					<a id="windows"></a>Setting https_proxy in Windows
+				</h2>
+
+				<ol>
+					<li><p>
+							Open the Start menu. Right-click <strong>Computer</strong> and
+							select <strong>Properties</strong>.
+						</p>
+
+						<p>
+							<img src="https://docs.cloudfoundry.org/cf-cli/images/properties.png" alt="Properties" />
+						</p></li>
+					<li><p>
+							In the left pane of the System window, click <strong>Advanced
+								system settings</strong>.
+						</p>
+
+						<p>
+							<img src="https://docs.cloudfoundry.org/cf-cli/images/adv-settings.png" alt="Adv settings" />
+						</p></li>
+					<li><p>
+							In the System Properties window, select the <strong>Advanced</strong>
+							tab, then click <strong>Environment Variables</strong>.
+						</p>
+
+						<p>
+							<img src="https://docs.cloudfoundry.org/cf-cli/images/env-var.png" alt="Env var" />
+						</p></li>
+					<li><p>
+							In the Environment Variables window, under User variables, click
+							<strong>New</strong>.
+						</p>
+
+						<p>
+							<img src="https://docs.cloudfoundry.org/cf-cli/images/new.png" alt="New" />
+						</p></li>
+					<li><p>
+							In the Variable name field, input
+							<code>https_proxy</code>
+							. In the Variable value field, input your proxy server
+							information.
+						</p>
+
+						<p>
+							<img src="https://docs.cloudfoundry.org/cf-cli/images/proxy.png" alt="Proxy" />
+						</p></li>
+					<li><p>
+							Click <strong>OK</strong>.
+						</p></li>
+				</ol>
+      		</div>
+			
+			<div id="menu3" class="tab-pane fade"></div>
+			
+			<div id="menu4" class="tab-pane fade"></div>
+			
+			<div id="menu5" class="tab-pane fade"></div>
 		</div>
 
 		<div class="mx-auto" style="height: 100px"></div>
